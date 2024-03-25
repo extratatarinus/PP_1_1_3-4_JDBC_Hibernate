@@ -10,6 +10,7 @@ import java.util.List;
 public class UserDaoJDBCImpl implements UserDao {
     private final Util util = new Util();
     private final Connection connection = util.getConnection();
+
     public UserDaoJDBCImpl() {
 
     }
@@ -54,7 +55,11 @@ public class UserDaoJDBCImpl implements UserDao {
         String querry = "DELETE FROM user WHERE `id` = ?";
         try {
             preparedStatement = connection.prepareStatement(querry);
-            preparedStatement.setLong(1,id);
+
+            preparedStatement.setLong(1, id);
+
+            preparedStatement.setLong(1, id);
+
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
